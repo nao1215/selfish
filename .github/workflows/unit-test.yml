@@ -1,0 +1,33 @@
+name: Linux, macOS, and Windows Unit Tests
+
+on:
+  pull_request:
+  push:
+
+permissions: read-all
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - macos-latest
+          - ubuntu-latest
+          - windows-latest
+        ocaml-compiler:
+          - "5.1"
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout tree
+        uses: actions/checkout@v4
+
+      - name: Set-up OCaml ${{ matrix.ocaml-compiler }}
+        uses: ocaml/setup-ocaml@v2
+        with:
+          ocaml-compiler: ${{ matrix.ocaml-compiler }}
+
+      - name: Unit Tests Application
+        run: make test
