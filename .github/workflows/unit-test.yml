@@ -28,4 +28,6 @@ jobs:
           ocaml-compiler: ${{ matrix.ocaml-compiler }}
 
       - name: Unit Tests Application
-        run: make test
+        run: |
+          opam install . --deps-only --with-test
+          opam exec -- dune runtest
