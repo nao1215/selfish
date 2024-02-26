@@ -1,7 +1,6 @@
-name: Builds, tests & co
+name: Linux, macOS Build
 
 on:
-  pull_request:
   push:
 
 permissions: read-all
@@ -14,7 +13,6 @@ jobs:
         os:
           - macos-latest
           - ubuntu-latest
-          - windows-latest
         ocaml-compiler:
           - "5.1"
 

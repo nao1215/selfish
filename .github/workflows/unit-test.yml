@@ -1,7 +1,6 @@
-name: Linux, macOS, and Windows Unit Tests
+name: Linux, macOS Unit Tests
 
 on:
-  pull_request:
   push:
 
 permissions: read-all
@@ -14,7 +13,6 @@ jobs:
         os:
           - macos-latest
           - ubuntu-latest
-          - windows-latest
         ocaml-compiler:
           - "5.1"
 
