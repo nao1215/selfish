@@ -11,6 +11,10 @@ build: ## Build the project
 test: ## Run the tests
 	dune runtest
 
+.PHONY: clean
+clean: ## Clean the project
+	dune clean
+
 .PHONY: changelog
 changelog: ## Generate changelog
 	ghch --format markdown > CHANGELOG.md

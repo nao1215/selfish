@@ -1,4 +1,4 @@
 (executable
  (public_name selfish)
  (name main)
- (libraries selfish))
+ (libraries selfish builtin))
