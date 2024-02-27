@@ -23,5 +23,11 @@ $ opam install ocaml-lsp-server odoc ocamlformat utop
 $ make build
 ```
 
+### How to run
+```shell
+nao@nao:~/github/github.com/nao1215/selfish (main)$ ./_build/install/default/bin/selfish 
+nao@nao:~/github/github.com/nao1215/selfish $   
+```
+
 ### LICENSE
 [MIT License](LICENSE) 
