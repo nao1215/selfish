@@ -15,16 +15,18 @@ let rec main_loop () =
   match input_line stdin with
   | exception End_of_file -> ()
   | input -> begin
-      let parts = String.split_on_char ' ' input in
-      match parts with
-      | cmd :: args -> 
-          if Selfish.is_builtin cmd then
-            Selfish.execute_builtin cmd args
-          else begin (* TODO: Search command from PATH *)
-            printf "%s\n" input;
-            main_loop ()
-          end
-      | [] -> main_loop ()
-    end
+    let parts = String.split_on_char ' ' input in
+    match parts with
+    | cmd :: args -> 
+        if Selfish.is_builtin cmd then begin
+          Selfish.execute_builtin cmd args;
+          main_loop () 
+        end
+        else begin (* TODO: Search command from PATH *)
+          printf "%s\n" input;
+          main_loop ()
+        end
+    | [] -> main_loop ()
+  end
 
 let () = main_loop ()
