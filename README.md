@@ -29,5 +29,36 @@ nao@nao:~/github/github.com/nao1215/selfish (main)$ ./_build/install/default/bin
 nao@nao:~/github/github.com/nao1215/selfish $   
 ```
 
+### Implemented Status
+#### Built-in Commands
+| Command   | Implemented | Description                                      |
+|-----------|-------------|--------------------------------------------------|
+| cd        | Yes         | Change the current working directory.            |
+| pwd       | No          | Print the current working directory.             |
+| echo      | No         | Display a line of text/string on the standard output. |
+| exit      | Yes         | Terminate the shell.                             |
+| alias     | No          | Create or display command aliases.               |
+| export    | No          | Set environment variables.                       |
+| unset     | No          | Unset environment variables.                     |
+| source/.   | No          | Execute commands from a file in the current shell. |
+| history   | No          | Display command history.                         |
+| jobs      | No          | Display status of jobs.                          |
+| fg        | No          | Bring a job to the foreground.                   |
+| bg        | No          | Resume suspended jobs in the background.         |
+| kill      | No          | Send a signal to a process.                      |
+| umask     | No          | Set the file mode creation mask.                 |
+| time      | No          | Measure program execution time.                  |
+| type      | No          | Display information about command type.          |
+| wait      | No          | Wait for process completion.                     |
+| exec      | No          | Replace the shell with the specified command.    |
+| read      | No          | Read a line from standard input.                 |
+| shift     | No          | Shift positional parameters in a script.         |
+| test/[    | No          | Evaluate conditional expressions.                |
+| true/false| No          | Do nothing, return a success/failure status.     |
+| eval      | No          | Evaluate arguments as shell script.              |
+
+#### Features
+[WIP]
+
 ### LICENSE
 [MIT License](LICENSE) 
