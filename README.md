@@ -34,7 +34,7 @@ nao@nao:~/github/github.com/nao1215/selfish $
 | Command   | Implemented | Description                                      |
 |-----------|-------------|--------------------------------------------------|
 | cd        | Yes         | Change the current working directory.            |
-| pwd       | No          | Print the current working directory.             |
+| pwd       | Yes          | Print the current working directory.             |
 | echo      | No         | Display a line of text/string on the standard output. |
 | exit      | Yes         | Terminate the shell.                             |
 | alias     | No          | Create or display command aliases.               |
@@ -54,7 +54,6 @@ nao@nao:~/github/github.com/nao1215/selfish $
 | read      | No          | Read a line from standard input.                 |
 | shift     | No          | Shift positional parameters in a script.         |
 | test/[    | No          | Evaluate conditional expressions.                |
-| true/false| No          | Do nothing, return a success/failure status.     |
 | eval      | No          | Evaluate arguments as shell script.              |
 
 #### Features

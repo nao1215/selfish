@@ -1,32 +1,32 @@
 open Printf
 open Builtin
 
-(*
-  Main loop of the selfish shell.
-  It reads a line from the standard input, and then prints it back
-  It also checks if the input is a built-in command
-*)
+(* Execute a command and return its exit status *)
+let execute_external_command cmd args =
+  let command = String.concat " " (cmd :: args) in
+  let exit_status = Sys.command command in
+  exit_status
+
+(* Main loop of the selfish shell *)
 let rec main_loop () =
   let user = Os.user_name () in
   let host = Os.hostname () in
   let cwd = Os.replace_home_path_with_tilde (Os.cwd ()) in
-  Printf.printf "%s@%s:%s $ %!" user host cwd;
+  printf "%s@%s:%s $ %!" user host cwd;
 
   match input_line stdin with
   | exception End_of_file -> ()
-  | input -> begin
-    let parts = String.split_on_char ' ' input in
-    match parts with
-    | cmd :: args -> 
-        if Selfish.is_builtin cmd then begin
-          Selfish.execute_builtin cmd args;
-          main_loop () 
-        end
-        else begin (* TODO: Search command from PATH *)
-          printf "%s\n" input;
-          main_loop ()
-        end
-    | [] -> main_loop ()
-  end
+  | input -> (
+      let parts = String.split_on_char ' ' input in
+      match parts with
+      | cmd :: args ->
+          if Selfish.is_builtin cmd then
+            let _ = Selfish.execute_builtin cmd args in
+            main_loop ()
+          else
+            (* Execute external command and save its exit status *)
+            let _ = execute_external_command cmd args in
+            main_loop ()
+      | [] -> main_loop ())
 
 let () = main_loop ()
