@@ -17,9 +17,12 @@ let exists_external_command cmd =
 (* Execute a command and return its exit status *)
 let execute_external_command cmd args =
   try execvp cmd (Array.of_list (cmd :: args))
-  with Unix.Unix_error (err, _, _) ->
+  with Unix.Unix_error (err, _, _) -> (
     printf "Error: %s\n" (Unix.error_message err);
-    1
+    match err with
+    | ENOENT -> 127 (* Command not found *)
+    | EACCES -> 126 (* Permission denied *)
+    | _ -> 1 (* Other errors *))
 
 (* Main loop of the selfish shell *)
 let rec main_loop () =
@@ -28,7 +31,8 @@ let rec main_loop () =
   let cwd = Os.replace_home_path_with_tilde (Os.cwd ()) in
   printf "%s@%s:%s $ %!" user host cwd;
 
-  match input_line stdin with
+  let input_channel = Unix.in_channel_of_descr Unix.stdin in
+  match input_line input_channel with
   | exception End_of_file -> ()
   | input -> (
       let parts = String.split_on_char ' ' input in
@@ -41,7 +45,7 @@ let rec main_loop () =
             let _ = execute_external_command cmd args in
             main_loop ()
           else (
-            printf "Command not found: %s\n" cmd;
+            printf "Command : %s\n" cmd;
             main_loop ())
       | [] -> main_loop ())
 
