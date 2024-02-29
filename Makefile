@@ -5,11 +5,15 @@ help: ## Show this help
 
 .PHONY: build
 build: ## Build the project
-	dune build
+	dune build @fmt
 
 .PHONY: test
 test: ## Run the tests
 	dune runtest
+
+.PHONY: install
+install: build ## Install the project
+	dune install
 
 .PHONY: clean
 clean: ## Clean the project
