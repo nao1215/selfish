@@ -23,10 +23,11 @@ $ opam install ocaml-lsp-server odoc ocamlformat utop
 $ make build
 ```
 
-### How to run
+### How to install
+By default, the shell will be installed in `~/.opam/default/bin/selfish`.
+
 ```shell
-nao@nao:~/github/github.com/nao1215/selfish (main)$ ./_build/install/default/bin/selfish 
-nao@nao:~/github/github.com/nao1215/selfish $   
+$ make install
 ```
 
 ### Implemented Status
