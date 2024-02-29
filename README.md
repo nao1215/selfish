@@ -35,7 +35,7 @@ nao@nao:~/github/github.com/nao1215/selfish $
 |-----------|-------------|--------------------------------------------------|
 | cd        | Yes         | Change the current working directory.            |
 | pwd       | Yes          | Print the current working directory.             |
-| echo      | No         | Display a line of text/string on the standard output. |
+| echo      | Yes         | Display a line of text/string on the standard output. |
 | exit      | Yes         | Terminate the shell.                             |
 | alias     | No          | Create or display command aliases.               |
 | export    | No          | Set environment variables.                       |
