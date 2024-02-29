@@ -3,7 +3,7 @@ name: "selfish"
 version: "0.0.1"
 maintainer: ["Naohiro CHIKAMATSU <n.chika156@gmail.com>"]
 authors: ["Naohiro CHIKAMATSU <n.chika156@gmail.com>"]
-synopsis: "SELFISH - the shell dyed in your selfish colors."
+synopsis: "SELFISH"
 description: "SELFISH - the shell dyed in your selfish colors."
 homepage: "https://github.com/nao1215/selfish"
 bug-reports: "https://github.com/nao1215/selfish/issues"
