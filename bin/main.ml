@@ -4,7 +4,7 @@ open Unix
 
 (* Check if a command exists in PATH *)
 let exists_external_command cmd =
-  let path = Unix.getenv "PATH" in
+  let path = try Unix.getenv "PATH" with Not_found -> "" in
   let paths = String.split_on_char ':' path in
   let rec exists_in_paths cmd = function
     | [] -> false
