@@ -45,7 +45,7 @@ let rec main_loop () =
             let _ = execute_external_command cmd args in
             main_loop ()
           else (
-            printf "Command : %s\n" cmd;
+            printf "selfish: '%s' not found\n" cmd;
             main_loop ())
       | [] -> main_loop ())
 
